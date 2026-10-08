@@ -1,0 +1,235 @@
+{
+  "scope": "Synthetic label-based documents only; no neural embeddings or LLM inference.",
+  "python": "3.12.14",
+  "documents": 6,
+  "retrieval": {
+    "bm25": {
+      "query_count": 10,
+      "hit_rate_at_3": 0.8,
+      "mrr_at_3": 0.8,
+      "mean_search_ms": 0.017949999528354965,
+      "cases": [
+        {
+          "query": "Maksekeskus webhook",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti tarne",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "jälgimiskoodi sünkroonitakse",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "software renewal cancellation",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "kauba tagastamine",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "conflicting amounts",
+          "expected": [
+            "DOC-005"
+          ],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "keskmine hajuvus statistika",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "monthly subscription shipment",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "maksekeskuse",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [],
+          "first_relevant_rank": null
+        }
+      ]
+    },
+    "hybrid": {
+      "query_count": 10,
+      "hit_rate_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "mean_search_ms": 0.19710999949893449,
+      "cases": [
+        {
+          "query": "Maksekeskus webhook",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti tarne",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "jälgimiskoodi sünkroonitakse",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "software renewal cancellation",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "kauba tagastamine",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004",
+            "DOC-002",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "conflicting amounts",
+          "expected": [
+            "DOC-005"
+          ],
+          "retrieved": [
+            "DOC-005",
+            "DOC-005",
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "keskmine hajuvus statistika",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006",
+            "DOC-004",
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "monthly subscription shipment",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "maksekeskuse",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        }
+      ]
+    }
+  },
+  "extraction": {
+    "correct_fields": 18,
+    "total_fields": 18,
+    "exact_field_accuracy": 1.0
+  }
+}

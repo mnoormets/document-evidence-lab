@@ -1,0 +1,68 @@
+[
+  {
+    "id": "DOC-001",
+    "text": "Viide: DEMO-INV-001\nSumma: 149,90 EUR\nTähtaeg: 2026-11-01\n\nMaksekeskus edastab kinnitatud makse webhooki. Tellimuse viide peab kattuma maksetehingu viitega.",
+    "expected_fields": {
+      "reference": "DEMO-INV-001",
+      "amount": {
+        "value": "149.90",
+        "currency": "EUR"
+      },
+      "due_date": "2026-11-01"
+    }
+  },
+  {
+    "id": "DOC-002",
+    "text": "Viide: DEMO-SHIP-002\nSumma: 80.00 EUR\nTähtaeg: 2026-11-03\n\nSmartpost tarne. Lao ja tellimuste liidestus edastab saadetise jälgimiskoodi. Kättetoimetamise olek sünkroonitakse poodi.",
+    "expected_fields": {
+      "reference": "DEMO-SHIP-002",
+      "amount": {
+        "value": "80.00",
+        "currency": "EUR"
+      },
+      "due_date": "2026-11-03"
+    }
+  },
+  {
+    "id": "DOC-003",
+    "text": "Reference: DEMO-SUB-003\nAmount: 29.00 USD\nDue date: 2026-11-15\n\nMonthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+    "expected_fields": {
+      "reference": "DEMO-SUB-003",
+      "amount": {
+        "value": "29.00",
+        "currency": "USD"
+      },
+      "due_date": "2026-11-15"
+    }
+  },
+  {
+    "id": "DOC-004",
+    "text": "Viide: DEMO-RET-004\nSumma: 45.00 EUR\nTähtaeg: 2026-11-20\n\nTagastus. Kliendile raha tagastamine toimub pärast kauba kontrollimist. Varasem tarne võib jääda tellimusele nähtavaks.",
+    "expected_fields": {
+      "reference": "DEMO-RET-004",
+      "amount": {
+        "value": "45.00",
+        "currency": "EUR"
+      },
+      "due_date": "2026-11-20"
+    }
+  },
+  {
+    "id": "DOC-005",
+    "text": "Reference: DEMO-AMB-005\nAmount: 10.00 EUR\nAmount: 12.00 EUR\n\nThe document contains two conflicting labelled amounts. Human review is required.",
+    "expected_fields": {
+      "reference": "DEMO-AMB-005",
+      "amount": null,
+      "due_date": null
+    }
+  },
+  {
+    "id": "DOC-006",
+    "text": "Viide: DEMO-TRAIN-006\nTähtaeg: 2026-02-30\n\nKoolitus tutvustab statistikat: keskmine, hajuvus ja tulemuste võrdlus. Dokumendis pole arve summat.",
+    "expected_fields": {
+      "reference": "DEMO-TRAIN-006",
+      "amount": null,
+      "due_date": null
+    }
+  }
+]
