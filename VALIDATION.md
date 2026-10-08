@@ -1,6 +1,6 @@
 # Validation — 8 October 2026
 
-44 automated tests cover retrieval/extraction, strict answer API inputs, busy and
+45 automated tests cover retrieval/extraction, strict answer API inputs, busy and
 unavailable responses, canonical source membership, exact citation offsets,
 malformed selections, recognized injection text, decimal preservation, bounded
 cache/TTL and finite JSON token constraints. Mock generators test invariants;
@@ -29,3 +29,9 @@ Cases were inspected while improving the policy. This is regression evidence,
 not independent generalization accuracy. Before/after case-level outputs retained.
 Corpus-change isolation, named-document routing, refund/date intent separation and
 default grounded API behavior have specific regression tests.
+
+An offline 26-case typed-routing release command is included and run locally.
+Its report explicitly excludes semantic model accuracy; failures exit nonzero.
+GitHub Actions exports reports, but hosted CI execution remains unverified until
+public repository publication. One regression verifies typed policy metadata is
+preserved when aggregate request instrumentation is applied.

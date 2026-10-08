@@ -73,3 +73,11 @@ def test_finite_choice_grammar_rejects_non_grammar_prefix():
     assert rule(0,IDs([7,7,1]))==[2,4]
     assert rule(0,IDs([7,7,1,2,3]))==[9]
     with pytest.raises(RuntimeError):rule(0,IDs([7,7,8]))
+
+
+def test_shared_metrics_preserve_answer_policy():
+    import time
+    service=EvidenceRAG(DOCS,lambda q:[HIT])
+    finished=service._finish({'status':'abstained','reason':'no_evidence','policy':'typed-grounding-v1'},time.perf_counter())
+    assert finished['policy']=='typed-grounding-v1'
+    assert service.metrics()['counters']['requests']==1

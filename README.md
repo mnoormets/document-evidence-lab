@@ -85,8 +85,16 @@ reviewed fixes it got 26/26: 20 correct answers and six correct abstentions. The
 cases were inspected during improvement and are now regression cases, not a blind
 held-out accuracy estimate. The first-passage baseline got 7/26 right.
 
-44 behavior/API tests pass. API metrics record grounded requests; the bounded cache
+45 behavior/API tests pass. API metrics record grounded requests; the bounded cache
 applies to retrieval/local_llm paths, not typed field responses. Explicit names are
 matched to document references/leading names; ambiguous multiple-document requests
 abstain. Renamed entities, multilingual synonyms and unsupported complex clauses
 need separate validation. The tiny generative model is still experimental.
+
+## Reproducible source release
+Run `python -m lab.check_release` after tests. It exits nonzero for a broken typed
+routing/citation regression and writes release-check.json. This offline command
+requires no model download. GitHub Actions installs the core requirements, runs
+all behavior tests and the offline gate, then exports reviewable JSON artifacts.
+Optional pretrained-model experiments must be run separately; CI does not claim
+GPU training, Linux model timings or neural quality that it has not measured.

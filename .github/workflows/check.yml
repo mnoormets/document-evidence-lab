@@ -11,3 +11,10 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m pytest -q
       - run: python -m lab.evaluate
+      - run: python -m lab.check_release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: offline-release-evidence
+          path: |
+            evaluation.json
+            release-check.json

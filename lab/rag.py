@@ -43,7 +43,7 @@ class EvidenceRAG:
         return result,quarantined
 
     def _finish(self,response,start):
-        response={**response,'request_id':str(uuid4()),'policy':POLICY,'corpus_sha256':self.corpus_hash}
+        response={**response,'request_id':str(uuid4()),'policy':response.get('policy',POLICY),'corpus_sha256':self.corpus_hash}
         response['timing_ms']={**response.get('timing_ms',{}),'total':round((time.perf_counter()-start)*1000,3)}
         with self.lock:
             self.counts['requests']+=1;self.counts[response['status']]+=1

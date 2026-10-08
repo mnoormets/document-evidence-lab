@@ -1,0 +1,164 @@
+{
+  "scope": "Offline typed document routing and extraction regression; not neural or independent accuracy.",
+  "fixture_sha256": "5d9d3a253ed5f2cf1a6ea70dc285147cffdfd93dfc6c7a3b3c630047bb868d71",
+  "cases": 26,
+  "passed": true,
+  "results": [
+    {
+      "question": "How much does Northstar analytics cost?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "When is the Northstar subscription payment due?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "What cancellation notice does Northstar require?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_source_selection"
+    },
+    {
+      "question": "Kui palju maksab Tamme lao haldusteenus?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "Mis on Tamme lao maksetähtaeg?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "Millal toimub Tamme lao tagasimakse?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_source_selection"
+    },
+    {
+      "question": "What is the price of Cedar delivery service?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "When is the Cedar invoice due?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "How is tracking provided for Cedar delivery?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_source_selection"
+    },
+    {
+      "question": "How much does Orbit membership cost?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "field_missing_or_ambiguous"
+    },
+    {
+      "question": "Mis on Linnu koolituse maksetähtaeg?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "field_missing_or_ambiguous"
+    },
+    {
+      "question": "What is the approved price of Quartz support?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "field_missing_or_ambiguous"
+    },
+    {
+      "question": "How much does Maple consulting cost?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "quarantined_document"
+    },
+    {
+      "question": "What is the amount for Delta annual hosting?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "What is the due date of Delta hosting?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "How long are Delta backups retained?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_source_selection"
+    },
+    {
+      "question": "How much does the Pine newsletter cost?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "Is the Pine newsletter refundable after delivery?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_source_selection"
+    },
+    {
+      "question": "Kui palju maksab Mere e-poe hooldus?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "Mis on Mere e-poe maksetähtaeg?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "How much does Bridge maintenance cost?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "What response time does Bridge promise?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_source_selection"
+    },
+    {
+      "question": "What is the price of the Solar training package?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_typed_field"
+    },
+    {
+      "question": "When does access to Solar training expire?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "verified_source_selection"
+    },
+    {
+      "question": "What is the oxygen concentration on Mars?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "no_evidence"
+    },
+    {
+      "question": "Who won the dinosaur football championship?",
+      "correct": true,
+      "exact_source": true,
+      "reason": "no_evidence"
+    }
+  ]
+}
