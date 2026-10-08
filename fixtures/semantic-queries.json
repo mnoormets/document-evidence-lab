@@ -1,0 +1,94 @@
+[
+  {
+    "query": "Maksekeskus webhook",
+    "relevant_ids": [
+      "DOC-001"
+    ]
+  },
+  {
+    "query": "Smartposti tarne",
+    "relevant_ids": [
+      "DOC-002"
+    ]
+  },
+  {
+    "query": "jälgimiskoodi sünkroonitakse",
+    "relevant_ids": [
+      "DOC-002"
+    ]
+  },
+  {
+    "query": "software renewal cancellation",
+    "relevant_ids": [
+      "DOC-003"
+    ]
+  },
+  {
+    "query": "kauba tagastamine",
+    "relevant_ids": [
+      "DOC-004"
+    ]
+  },
+  {
+    "query": "conflicting amounts",
+    "relevant_ids": [
+      "DOC-005"
+    ]
+  },
+  {
+    "query": "keskmine hajuvus statistika",
+    "relevant_ids": [
+      "DOC-006"
+    ]
+  },
+  {
+    "query": "monthly subscription shipment",
+    "relevant_ids": [
+      "DOC-003"
+    ]
+  },
+  {
+    "query": "Smartposti",
+    "relevant_ids": [
+      "DOC-002"
+    ]
+  },
+  {
+    "query": "maksekeskuse",
+    "relevant_ids": [
+      "DOC-001"
+    ]
+  },
+  {
+    "query": "How does the parcel tracking reach the store?",
+    "relevant_ids": [
+      "DOC-002"
+    ]
+  },
+  {
+    "query": "When will the buyer get their money back?",
+    "relevant_ids": [
+      "DOC-004"
+    ]
+  },
+  {
+    "query": "payment confirmation notification",
+    "relevant_ids": [
+      "DOC-001"
+    ]
+  },
+  {
+    "query": "Where can I learn about average and variance?",
+    "relevant_ids": [
+      "DOC-006"
+    ]
+  },
+  {
+    "query": "How much oxygen does the Mars spacecraft carry?",
+    "relevant_ids": []
+  },
+  {
+    "query": "dinosaur fossil excavation site",
+    "relevant_ids": []
+  }
+]

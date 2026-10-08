@@ -20,7 +20,8 @@ Open http://127.0.0.1:8771/. Run `python -m pytest -q` for verification.
   deliberate. Expected document relevance is hand-labelled on a tiny synthetic set.
 
 ## Limitations
-No PDF/OCR parser, model fine-tuning, semantic embeddings, authentication or persistence.
+No PDF/OCR parser, model fine-tuning, authentication or document upload/persistence.
+Optional semantic embeddings are prepared separately as described below.
 Local elapsed times are a small-data measurement, not a production throughput claim.
 Documents are UTF-8 plain text. Extraction does not understand arbitrary clauses.
 For a neural RAG extension, keep this baseline and evaluate new answers/citations on
@@ -30,3 +31,25 @@ separate examples. Document text must remain untrusted data, never instructions.
 Explain why character grams can tolerate spelling/inflection and why they can also
 return irrelevant matches. Explain why two Amount lines should trigger abstention.
 Change one test query yourself, predict the ranking, then inspect the result.
+
+## Local neural retrieval extension
+Install requirements-neural.txt after installing CPU PyTorch for your platform.
+Run `python -m lab.prepare_model` once to explicitly download public safetensors
+weights. Model revision and local cache are saved under ignored data/. No API keys,
+paid inference endpoints or remote custom model code are used. Then run
+`python -m lab.evaluate_semantic`. The API modes neural and neural_hybrid use the
+local model; if it is unavailable, the API returns 503 rather than pretending that
+lexical retrieval is neural output.
+
+The tested model is sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+(Apache-2.0), revision recorded in semantic-evaluation.json, 384-dimensional vectors.
+Neural search uses cosine >= 0.30; the hybrid method combines BM25 and neural ranks
+with reciprocal-rank fusion. This threshold is an initial review policy, not a
+calibrated confidence score. No generated-answer RAG or model fine-tuning is claimed.
+
+The 16-case set contains 14 answerable and 2 unrelated queries, including cross-language
+questions. Keep failures and unknown-query returns; do not report hit rate as general
+accuracy. First model load is slow; measured warm query time excludes initialization.
+
+Sources: https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+and https://sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html.

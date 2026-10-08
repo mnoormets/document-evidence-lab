@@ -1,0 +1,719 @@
+{
+  "scope": "Synthetic retrieval comparison only. No generated answers, fine-tuning or real-document accuracy claim.",
+  "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "model_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+  "device": "cpu",
+  "embedding_dimensions": 384,
+  "sentence_transformers": "6.1.0",
+  "torch": "2.14.1+cpu",
+  "cosine_threshold": 0.3,
+  "setup_seconds": 46.82495530000597,
+  "methods": {
+    "bm25": {
+      "answerable_queries": 14,
+      "hit_rate_at_3": 0.5714285714285714,
+      "mrr_at_3": 0.5714285714285714,
+      "unanswerable_queries": 2,
+      "unanswerable_return_rate": 0.5,
+      "mean_query_ms": 0.02027500158874318,
+      "cases": [
+        {
+          "query": "Maksekeskus webhook",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti tarne",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "jälgimiskoodi sünkroonitakse",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "software renewal cancellation",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "kauba tagastamine",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "conflicting amounts",
+          "expected": [
+            "DOC-005"
+          ],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "keskmine hajuvus statistika",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "monthly subscription shipment",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "maksekeskuse",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "How does the parcel tracking reach the store?",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "When will the buyer get their money back?",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "payment confirmation notification",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "Where can I learn about average and variance?",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "How much oxygen does the Mars spacecraft carry?",
+          "expected": [],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "dinosaur fossil excavation site",
+          "expected": [],
+          "retrieved": [],
+          "first_relevant_rank": null
+        }
+      ]
+    },
+    "hybrid": {
+      "answerable_queries": 14,
+      "hit_rate_at_3": 0.7142857142857143,
+      "mrr_at_3": 0.7142857142857143,
+      "unanswerable_queries": 2,
+      "unanswerable_return_rate": 1.0,
+      "mean_query_ms": 0.23053750055623823,
+      "cases": [
+        {
+          "query": "Maksekeskus webhook",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti tarne",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "jälgimiskoodi sünkroonitakse",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "software renewal cancellation",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "kauba tagastamine",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004",
+            "DOC-002",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "conflicting amounts",
+          "expected": [
+            "DOC-005"
+          ],
+          "retrieved": [
+            "DOC-005",
+            "DOC-005",
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "keskmine hajuvus statistika",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006",
+            "DOC-004",
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "monthly subscription shipment",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "maksekeskuse",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "How does the parcel tracking reach the store?",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "When will the buyer get their money back?",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "payment confirmation notification",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-003",
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "Where can I learn about average and variance?",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "How much oxygen does the Mars spacecraft carry?",
+          "expected": [],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "dinosaur fossil excavation site",
+          "expected": [],
+          "retrieved": [
+            "DOC-003"
+          ],
+          "first_relevant_rank": null
+        }
+      ]
+    },
+    "neural": {
+      "answerable_queries": 14,
+      "hit_rate_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "unanswerable_queries": 2,
+      "unanswerable_return_rate": 0.0,
+      "mean_query_ms": 15.822512499653385,
+      "cases": [
+        {
+          "query": "Maksekeskus webhook",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-002",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti tarne",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "jälgimiskoodi sünkroonitakse",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-001",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "software renewal cancellation",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "kauba tagastamine",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004",
+            "DOC-002",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "conflicting amounts",
+          "expected": [
+            "DOC-005"
+          ],
+          "retrieved": [
+            "DOC-005",
+            "DOC-004",
+            "DOC-005"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "keskmine hajuvus statistika",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "monthly subscription shipment",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003",
+            "DOC-004",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "maksekeskuse",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "How does the parcel tracking reach the store?",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "When will the buyer get their money back?",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004",
+            "DOC-003",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "payment confirmation notification",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-003",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Where can I learn about average and variance?",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "How much oxygen does the Mars spacecraft carry?",
+          "expected": [],
+          "retrieved": [],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "dinosaur fossil excavation site",
+          "expected": [],
+          "retrieved": [],
+          "first_relevant_rank": null
+        }
+      ]
+    },
+    "neural_hybrid": {
+      "answerable_queries": 14,
+      "hit_rate_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "unanswerable_queries": 2,
+      "unanswerable_return_rate": 0.5,
+      "mean_query_ms": 15.493506249185884,
+      "cases": [
+        {
+          "query": "Maksekeskus webhook",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-002",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti tarne",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "jälgimiskoodi sünkroonitakse",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-001",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "software renewal cancellation",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003",
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "kauba tagastamine",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004",
+            "DOC-002",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "conflicting amounts",
+          "expected": [
+            "DOC-005"
+          ],
+          "retrieved": [
+            "DOC-005",
+            "DOC-005",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "keskmine hajuvus statistika",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "monthly subscription shipment",
+          "expected": [
+            "DOC-003"
+          ],
+          "retrieved": [
+            "DOC-003",
+            "DOC-004",
+            "DOC-002"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Smartposti",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "maksekeskuse",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-002",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "How does the parcel tracking reach the store?",
+          "expected": [
+            "DOC-002"
+          ],
+          "retrieved": [
+            "DOC-002",
+            "DOC-005",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "When will the buyer get their money back?",
+          "expected": [
+            "DOC-004"
+          ],
+          "retrieved": [
+            "DOC-004",
+            "DOC-005",
+            "DOC-003"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "payment confirmation notification",
+          "expected": [
+            "DOC-001"
+          ],
+          "retrieved": [
+            "DOC-001",
+            "DOC-003",
+            "DOC-004"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "Where can I learn about average and variance?",
+          "expected": [
+            "DOC-006"
+          ],
+          "retrieved": [
+            "DOC-006"
+          ],
+          "first_relevant_rank": 1
+        },
+        {
+          "query": "How much oxygen does the Mars spacecraft carry?",
+          "expected": [],
+          "retrieved": [
+            "DOC-005"
+          ],
+          "first_relevant_rank": null
+        },
+        {
+          "query": "dinosaur fossil excavation site",
+          "expected": [],
+          "retrieved": [],
+          "first_relevant_rank": null
+        }
+      ]
+    }
+  },
+  "limitations": "Small authored case set, not an independent general benchmark. Threshold is an initial policy, not calibrated confidence."
+}

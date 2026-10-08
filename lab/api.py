@@ -16,8 +16,14 @@ class TextInput(BaseModel):
 @app.get('/')
 def page():return FileResponse(ROOT/'web/index.html')
 @app.get('/api/search')
-def search(q:str=Query(min_length=1,max_length=300),mode:Literal['bm25','hybrid']='hybrid'):
-    return {'mode':mode,'results':INDEX.search(q,mode),'notice':'Synthetic documents; retrieved passages are evidence, not generated answers.'}
+def search(q:str=Query(min_length=1,max_length=300),mode:Literal['bm25','hybrid','neural','neural_hybrid']='hybrid'):
+    try:
+        if mode.startswith('neural'):
+            from .semantic import load_index
+            hits=load_index(DOCS).search(q,mode)
+        else:hits=INDEX.search(q,mode)
+    except (RuntimeError,ImportError,OSError,ValueError):raise HTTPException(503,'Neural model unavailable; choose a lexical mode')
+    return {'mode':mode,'results':hits,'notice':'Synthetic documents; retrieved passages are evidence, not generated answers.'}
 @app.get('/api/documents/{document_id}')
 def document(document_id:str):
     doc=next((x for x in DOCS if x['id']==document_id),None)
@@ -29,4 +35,12 @@ def extraction(body:TextInput):return extract(body.text)
 def evaluation():
     target=ROOT/'evaluation.json'
     if not target.exists():raise HTTPException(404,'Run python -m lab.evaluate first')
+    return json.loads(target.read_text(encoding='utf-8'))
+
+@app.get('/api/status')
+def status():return {'neural_prepared':(ROOT/'data/model-manifest.json').exists(),'data':'synthetic','mode':'local_cpu'}
+@app.get('/api/semantic-evaluation')
+def semantic_evaluation():
+    target=ROOT/'semantic-evaluation.json'
+    if not target.exists():raise HTTPException(404,'Neural evaluation has not run')
     return json.loads(target.read_text(encoding='utf-8'))

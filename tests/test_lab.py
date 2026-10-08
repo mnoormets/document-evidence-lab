@@ -42,7 +42,7 @@ def test_unknown_query_abstains_and_duplicate_ids_rejected():
 def test_api_validation_and_document_lookup():
     with TestClient(app) as c:
         assert c.get('/api/search?q=Smartpost').status_code==200
-        assert c.get('/api/search?q=x&mode=neural').status_code==422
+        assert c.get('/api/search?q=x&mode=unsupported').status_code==422
         assert c.get('/api/documents/missing').status_code==404
         assert c.post('/api/extract',json={'text':'Amount: 4.50 EUR','customer_email':'x'}).status_code==422
         result=c.post('/api/extract',json={'text':'Amount: 4.50 EUR'}).json()
