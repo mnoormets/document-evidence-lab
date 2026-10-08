@@ -35,3 +35,12 @@ more languages and adversarial fixtures. Compare stronger selectors, sentence
 reranking and no-model structured extraction; retain failures and cost/latency.
 Only promote a method after a frozen evaluation demonstrates improvement. Real
 PDF parsing, provenance, access controls and pilot users are separate milestones.
+
+## Revised default policy
+Explicit named-document scope precedes optional neural retrieval. Typed field
+questions validate the entire named source and extract a single labelled value.
+Missing, duplicated or invalid fields abstain. General questions use canonical
+prose evidence, excluding numeric header matches. No model prose is trusted.
+Neural-index caching is keyed by corpus hash so a different corpus cannot reuse the
+previous document index. The default is grounded; retrieval and local_llm remain
+comparison methods. The reviewed 26-case release gate is a regression gate only.

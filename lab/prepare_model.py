@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 MODEL='sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
 
 def main():
-    revision=HfApi(token=False).model_info(MODEL,token=False).sha
+    revision='e8f8c211226b894fcb81acc59f3b34ba3efd5f42'
     target=snapshot_download(MODEL,revision=revision,token=False,cache_dir=ROOT/'data/models',
         allow_patterns=['*.json','*.txt','*.safetensors','README.md'])
     manifest={'model':MODEL,'revision':revision,'snapshot_path':str(Path(target).resolve()),

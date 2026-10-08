@@ -1,11 +1,13 @@
 """Optional CPU neural retrieval, loaded only from an explicitly prepared local model."""
 import json
+import hashlib
 import threading
 from pathlib import Path
 from .search import SearchIndex,tokens
 ROOT=Path(__file__).resolve().parents[1]
 _LOCK=threading.Lock()
 _INDEX=None
+_CORPUS_KEY=None
 
 class NeuralIndex:
     def __init__(self,documents,encoder):
@@ -31,9 +33,12 @@ class NeuralIndex:
 
 
 def load_index(documents):
-    global _INDEX
+    global _INDEX,_CORPUS_KEY
     with _LOCK:
-        if _INDEX is not None:return _INDEX
+        key=hashlib.sha256(json.dumps(documents,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+        if _INDEX is not None and _CORPUS_KEY==key:return _INDEX
+        if _INDEX is not None:
+            _INDEX=NeuralIndex(documents,_INDEX.encoder);_CORPUS_KEY=key;return _INDEX
         manifest_path=ROOT/'data/model-manifest.json'
         if not manifest_path.exists():raise RuntimeError('Neural model not prepared; run python -m lab.prepare_model')
         manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
@@ -43,4 +48,5 @@ def load_index(documents):
         encoder=SentenceTransformer(manifest['snapshot_path'],device='cpu',local_files_only=True,
             trust_remote_code=False,model_kwargs={'use_safetensors':True})
         _INDEX=NeuralIndex(documents,encoder)
+        _CORPUS_KEY=key
         return _INDEX

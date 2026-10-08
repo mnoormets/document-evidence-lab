@@ -1,6 +1,6 @@
 # Validation — 8 October 2026
 
-28 automated tests cover retrieval/extraction, strict answer API inputs, busy and
+44 automated tests cover retrieval/extraction, strict answer API inputs, busy and
 unavailable responses, canonical source membership, exact citation offsets,
 malformed selections, recognized injection text, decimal preservation, bounded
 cache/TTL and finite JSON token constraints. Mock generators test invariants;
@@ -20,3 +20,12 @@ separate recorded experiments execute real pretrained models locally on CPU.
 
 Run python -m pytest -q and python -m lab.evaluate_rag to reproduce. Install a
 CPU-compatible PyTorch and requirements-neural.txt for the optional model paths.
+
+## Quality regression
+12 additional synthetic documents / 26 cases: first-passage baseline 7 correct,
+initial typed path 22 correct, revised typed path 26 correct with six abstentions.
+All 20 returned citations match the source exactly; no false answers in this set.
+Cases were inspected while improving the policy. This is regression evidence,
+not independent generalization accuracy. Before/after case-level outputs retained.
+Corpus-change isolation, named-document routing, refund/date intent separation and
+default grounded API behavior have specific regression tests.

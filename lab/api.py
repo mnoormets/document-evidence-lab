@@ -47,12 +47,13 @@ def semantic_evaluation():
 
 # Initialize the optional AI pipeline lazily; never download a model in a request.
 import threading
+import time
 RAG_LOCK=threading.Lock()
 RAG_SERVICE=None
 class AnswerInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     question:str=Field(min_length=1,max_length=300)
-    backend:Literal['local_llm','retrieval']='retrieval'
+    backend:Literal['grounded','local_llm','retrieval']='grounded'
 
 def get_rag():
     global RAG_SERVICE
@@ -68,7 +69,14 @@ def get_rag():
 
 @app.post('/api/answer')
 def answer(body:AnswerInput):
-    try:result=get_rag().answer(body.question,body.backend)
+    try:
+        if body.backend=='grounded':
+            from .grounded import GroundedQA
+            service=get_rag()
+            started=time.perf_counter()
+            result=GroundedQA(DOCS,service.retriever).answer(body.question)
+            result=service._finish(result,started)
+        else:result=get_rag().answer(body.question,body.backend)
     except (RuntimeError,ImportError,OSError,ValueError):raise HTTPException(503,'Local AI pipeline unavailable')
     if result['reason']=='model_busy':raise HTTPException(429,'Local model busy; retry later')
     return result
@@ -81,4 +89,10 @@ def rag_metrics():
 def rag_evaluation():
     target=ROOT/'rag-evaluation.json'
     if not target.exists():raise HTTPException(404,'RAG evaluation has not run')
+    return json.loads(target.read_text(encoding='utf-8'))
+
+@app.get('/api/quality-evaluation')
+def quality_evaluation():
+    target=ROOT/'quality-evaluation.json'
+    if not target.exists():raise HTTPException(404,'Run the quality evaluation first')
     return json.loads(target.read_text(encoding='utf-8'))

@@ -30,3 +30,14 @@ def test_model_unavailable_is_explicit_not_a_fake_lexical_result(monkeypatch):
     with TestClient(app) as c:
         assert c.get('/api/search?q=payment&mode=neural').status_code==503
         assert c.get('/api/search?q=payment&mode=bm25').status_code==200
+
+
+def test_changed_corpus_rebuilds_index_instead_of_leaking_previous_documents(monkeypatch):
+    from lab import semantic
+    first=[{'id':'old','text':'Payment confirmation'}]
+    second=[{'id':'new','text':'Parcel tracking'}]
+    monkeypatch.setattr(semantic,'_INDEX',NeuralIndex(first,Encoder()))
+    monkeypatch.setattr(semantic,'_CORPUS_KEY',None)
+    rebuilt=semantic.load_index(second)
+    assert [p.document_id for p in rebuilt.passages]==['new']
+    assert semantic.load_index(second) is rebuilt

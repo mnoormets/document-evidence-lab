@@ -73,3 +73,20 @@ The request is limited to 300 characters, model input to 1024 tokens, candidates
 to 12, and cache to 64 entries with a five-minute TTL. Model calls are serialized;
 busy calls return 429. Recognized instruction-injection phrases are quarantined,
 but this heuristic is not a comprehensive injection defense. See ARCHITECTURE.md.
+
+## Typed grounding and regression release
+The default answer path is now `grounded`: explicit document names scope the corpus,
+price/deadline/reference questions use unambiguous validated fields, and prose
+questions exclude numeric headers. This fixes price questions that previously
+returned cancellation text. Refund questions are not interpreted as due dates.
+Run `python -m lab.evaluate_quality` for a 12-document, 26-question review. The
+initial typed method got 22/26 right, retained in quality-before-v2.json. After
+reviewed fixes it got 26/26: 20 correct answers and six correct abstentions. These
+cases were inspected during improvement and are now regression cases, not a blind
+held-out accuracy estimate. The first-passage baseline got 7/26 right.
+
+44 behavior/API tests pass. API metrics record grounded requests; the bounded cache
+applies to retrieval/local_llm paths, not typed field responses. Explicit names are
+matched to document references/leading names; ambiguous multiple-document requests
+abstain. Renamed entities, multilingual synonyms and unsupported complex clauses
+need separate validation. The tiny generative model is still experimental.

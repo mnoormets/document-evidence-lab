@@ -1,0 +1,1632 @@
+{
+  "scope": "New authored synthetic review set, separate from six development documents; not independent external validation.",
+  "fixture_sha256": "5d9d3a253ed5f2cf1a6ea70dc285147cffdfd93dfc6c7a3b3c630047bb868d71",
+  "retrieval_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "threshold": 0.3,
+  "methods": {
+    "retrieval": {
+      "cases": 26,
+      "correct": 7,
+      "answered": 25,
+      "false_answers": 19,
+      "valid_citations": 25,
+      "details": [
+        {
+          "case": {
+            "question": "How much does Northstar analytics cost?",
+            "expected_document": "QA-101",
+            "expected_fragment": "67.40 EUR"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Reference: NORTHSTAR-101",
+            "citation": {
+              "document_id": "QA-101",
+              "passage_id": "QA-101:0",
+              "quote": "Reference: NORTHSTAR-101",
+              "start": 0,
+              "end": 24
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 268.316,
+              "generation": 0,
+              "total": 268.989
+            },
+            "request_id": "973e7f56-8abe-4a0c-8228-c38f5fe1ee3c",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "When is the Northstar subscription payment due?",
+            "expected_document": "QA-101",
+            "expected_fragment": "2027-03-11"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+            "citation": {
+              "document_id": "QA-101",
+              "passage_id": "QA-101:1",
+              "quote": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+              "start": 65,
+              "end": 139
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 30.087,
+              "generation": 0,
+              "total": 30.168
+            },
+            "request_id": "9eaacaec-b528-48e2-9bf9-f55a2e80c625",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What cancellation notice does Northstar require?",
+            "expected_document": "QA-101",
+            "expected_fragment": "14 days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+            "citation": {
+              "document_id": "QA-101",
+              "passage_id": "QA-101:1",
+              "quote": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+              "start": 65,
+              "end": 139
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 25.943,
+              "generation": 0,
+              "total": 26.032
+            },
+            "request_id": "00aa9823-afe3-45d4-8fd2-bbdb4b0b2b19",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Kui palju maksab Tamme lao haldusteenus?",
+            "expected_document": "QA-102",
+            "expected_fragment": "218,35 EUR"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Tamme lao haldusteenus. Tagasimakse tehakse pärast tagastuse kontrollimist.",
+            "citation": {
+              "document_id": "QA-102",
+              "passage_id": "QA-102:1",
+              "quote": "Tamme lao haldusteenus. Tagasimakse tehakse pärast tagastuse kontrollimist.",
+              "start": 59,
+              "end": 134
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 21.931,
+              "generation": 0,
+              "total": 22.025
+            },
+            "request_id": "3247766a-e694-42a6-9893-6a3a39db97d2",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Mis on Tamme lao maksetähtaeg?",
+            "expected_document": "QA-102",
+            "expected_fragment": "2027-04-19"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Tamme lao haldusteenus. Tagasimakse tehakse pärast tagastuse kontrollimist.",
+            "citation": {
+              "document_id": "QA-102",
+              "passage_id": "QA-102:1",
+              "quote": "Tamme lao haldusteenus. Tagasimakse tehakse pärast tagastuse kontrollimist.",
+              "start": 59,
+              "end": 134
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 21.649,
+              "generation": 0,
+              "total": 21.741
+            },
+            "request_id": "1e542dab-9e1c-47fa-9da0-a5d6fc23bc45",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Millal toimub Tamme lao tagasimakse?",
+            "expected_document": "QA-102",
+            "expected_fragment": "pärast tagastuse kontrollimist"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Reference: PINE-109",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": "QA-109:0",
+              "quote": "Reference: PINE-109",
+              "start": 0,
+              "end": 19
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 19.938,
+              "generation": 0,
+              "total": 20.029
+            },
+            "request_id": "a4f340e8-e9d5-4522-9e26-8300e199ef53",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the price of Cedar delivery service?",
+            "expected_document": "QA-103",
+            "expected_fragment": "55.00 GBP"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+            "citation": {
+              "document_id": "QA-103",
+              "passage_id": "QA-103:1",
+              "quote": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+              "start": 61,
+              "end": 124
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 20.3,
+              "generation": 0,
+              "total": 20.388
+            },
+            "request_id": "e4905963-b6c3-4d19-8017-4bf3678e38a7",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "When is the Cedar invoice due?",
+            "expected_document": "QA-103",
+            "expected_fragment": "2027-06-30"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+            "citation": {
+              "document_id": "QA-103",
+              "passage_id": "QA-103:1",
+              "quote": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+              "start": 61,
+              "end": 124
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 20.088,
+              "generation": 0,
+              "total": 20.17
+            },
+            "request_id": "be01613c-a5a4-4d6e-9c5f-def30e270674",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How is tracking provided for Cedar delivery?",
+            "expected_document": "QA-103",
+            "expected_fragment": "after dispatch"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+            "citation": {
+              "document_id": "QA-103",
+              "passage_id": "QA-103:1",
+              "quote": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+              "start": 61,
+              "end": 124
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 18.695,
+              "generation": 0,
+              "total": 18.76
+            },
+            "request_id": "77b15740-5f51-4a0e-9e4b-635666055919",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How much does Orbit membership cost?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Reference: ORBIT-104",
+            "citation": {
+              "document_id": "QA-104",
+              "passage_id": "QA-104:0",
+              "quote": "Reference: ORBIT-104",
+              "start": 0,
+              "end": 20
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 19.586,
+              "generation": 0,
+              "total": 19.666
+            },
+            "request_id": "963600a6-796d-42a3-9bb9-85456f0dc612",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Mis on Linnu koolituse maksetähtaeg?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Linnu koolitusteenus. Vigane maksekuupäev vajab kontrolli.",
+            "citation": {
+              "document_id": "QA-105",
+              "passage_id": "QA-105:1",
+              "quote": "Linnu koolitusteenus. Vigane maksekuupäev vajab kontrolli.",
+              "start": 41,
+              "end": 99
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 23.981,
+              "generation": 0,
+              "total": 24.065
+            },
+            "request_id": "7d36bc34-d989-4a36-a843-5af33e262d69",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the approved price of Quartz support?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Quartz support agreement. No price has been approved. Service is provided on weekdays.",
+            "citation": {
+              "document_id": "QA-106",
+              "passage_id": "QA-106:1",
+              "quote": "Quartz support agreement. No price has been approved. Service is provided on weekdays.",
+              "start": 23,
+              "end": 109
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 25.256,
+              "generation": 0,
+              "total": 25.342
+            },
+            "request_id": "d66b4634-c15b-472b-91f0-9ce69c880720",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How much does Maple consulting cost?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": "QA-109:1",
+              "quote": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+              "start": 59,
+              "end": 136
+            },
+            "cache_hit": false,
+            "quarantined_passages": 1,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 21.477,
+              "generation": 0,
+              "total": 21.603
+            },
+            "request_id": "e372829d-f93a-46eb-b96a-e577b8f80d10",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the amount for Delta annual hosting?",
+            "expected_document": "QA-108",
+            "expected_fragment": "1200.00 EUR"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Delta annual hosting service. Backups are retained for 30 days.",
+            "citation": {
+              "document_id": "QA-108",
+              "passage_id": "QA-108:1",
+              "quote": "Delta annual hosting service. Backups are retained for 30 days.",
+              "start": 63,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 21.115,
+              "generation": 0,
+              "total": 21.211
+            },
+            "request_id": "641661f9-fde3-492a-a4f7-e1d74e973c7d",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the due date of Delta hosting?",
+            "expected_document": "QA-108",
+            "expected_fragment": "2027-08-01"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Delta annual hosting service. Backups are retained for 30 days.",
+            "citation": {
+              "document_id": "QA-108",
+              "passage_id": "QA-108:1",
+              "quote": "Delta annual hosting service. Backups are retained for 30 days.",
+              "start": 63,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.29,
+              "generation": 0,
+              "total": 22.38
+            },
+            "request_id": "396fe231-3658-4d7d-a0ef-9080a6e7b870",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How long are Delta backups retained?",
+            "expected_document": "QA-108",
+            "expected_fragment": "30 days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Delta annual hosting service. Backups are retained for 30 days.",
+            "citation": {
+              "document_id": "QA-108",
+              "passage_id": "QA-108:1",
+              "quote": "Delta annual hosting service. Backups are retained for 30 days.",
+              "start": 63,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.764,
+              "generation": 0,
+              "total": 22.839
+            },
+            "request_id": "8b186fe9-5ce3-4c3b-aa21-4e36f9d38ae6",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How much does the Pine newsletter cost?",
+            "expected_document": "QA-109",
+            "expected_fragment": "9.99 USD"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": "QA-109:1",
+              "quote": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+              "start": 59,
+              "end": 136
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 38.736,
+              "generation": 0,
+              "total": 38.815
+            },
+            "request_id": "769cd45b-1504-45df-834f-ed9b39e037a4",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Is the Pine newsletter refundable after delivery?",
+            "expected_document": "QA-109",
+            "expected_fragment": "not refundable"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": "QA-109:1",
+              "quote": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+              "start": 59,
+              "end": 136
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.6,
+              "generation": 0,
+              "total": 22.711
+            },
+            "request_id": "6d603531-476b-4309-9400-d6cb7b150513",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Kui palju maksab Mere e-poe hooldus?",
+            "expected_document": "QA-110",
+            "expected_fragment": "340,00 EUR"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Mere e-poe hooldus. Makse kinnitamisel saadetakse tellimuse sündmus poodi.",
+            "citation": {
+              "document_id": "QA-110",
+              "passage_id": "QA-110:1",
+              "quote": "Mere e-poe hooldus. Makse kinnitamisel saadetakse tellimuse sündmus poodi.",
+              "start": 59,
+              "end": 133
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 32.102,
+              "generation": 0,
+              "total": 32.23
+            },
+            "request_id": "506608ea-dae3-4aee-a886-7a992fdf8c27",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Mis on Mere e-poe maksetähtaeg?",
+            "expected_document": "QA-110",
+            "expected_fragment": "2027-09-22"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Mere e-poe hooldus. Makse kinnitamisel saadetakse tellimuse sündmus poodi.",
+            "citation": {
+              "document_id": "QA-110",
+              "passage_id": "QA-110:1",
+              "quote": "Mere e-poe hooldus. Makse kinnitamisel saadetakse tellimuse sündmus poodi.",
+              "start": 59,
+              "end": 133
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 42.734,
+              "generation": 0,
+              "total": 42.821
+            },
+            "request_id": "d6b98346-1eb7-42ac-8a05-7b9fae56388d",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How much does Bridge maintenance cost?",
+            "expected_document": "QA-111",
+            "expected_fragment": "85.00 GBP"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Bridge maintenance plan. The response time is two business days.",
+            "citation": {
+              "document_id": "QA-111",
+              "passage_id": "QA-111:1",
+              "quote": "Bridge maintenance plan. The response time is two business days.",
+              "start": 62,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.913,
+              "generation": 0,
+              "total": 23.009
+            },
+            "request_id": "29b3c184-1d8d-4abc-86cf-cc9c6ea73d64",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What response time does Bridge promise?",
+            "expected_document": "QA-111",
+            "expected_fragment": "two business days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Bridge maintenance plan. The response time is two business days.",
+            "citation": {
+              "document_id": "QA-111",
+              "passage_id": "QA-111:1",
+              "quote": "Bridge maintenance plan. The response time is two business days.",
+              "start": 62,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 35.674,
+              "generation": 0,
+              "total": 35.843
+            },
+            "request_id": "5a0aa4f2-e37a-4489-83ad-95aeedaecdf3",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the price of the Solar training package?",
+            "expected_document": "QA-112",
+            "expected_fragment": "200.00 EUR"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Reference: SOLAR-112",
+            "citation": {
+              "document_id": "QA-112",
+              "passage_id": "QA-112:0",
+              "quote": "Reference: SOLAR-112",
+              "start": 0,
+              "end": 20
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 29.014,
+              "generation": 0,
+              "total": 29.104
+            },
+            "request_id": "e62fe6c5-cf7d-40e6-9794-37959d6c7afb",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "When does access to Solar training expire?",
+            "expected_document": "QA-112",
+            "expected_fragment": "90 days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Solar training package. Access expires 90 days after activation.",
+            "citation": {
+              "document_id": "QA-112",
+              "passage_id": "QA-112:1",
+              "quote": "Solar training package. Access expires 90 days after activation.",
+              "start": 62,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 27.649,
+              "generation": 0,
+              "total": 27.734
+            },
+            "request_id": "145068ae-9021-4a3c-a9c1-e10b3983f8a1",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the oxygen concentration on Mars?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Reference: MAPLE-107",
+            "citation": {
+              "document_id": "QA-107",
+              "passage_id": "QA-107:0",
+              "quote": "Reference: MAPLE-107",
+              "start": 0,
+              "end": 20
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 28.043,
+              "generation": 0,
+              "total": 28.127
+            },
+            "request_id": "3215eca4-a1b0-4cd9-8396-4a682b3a8042",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Who won the dinosaur football championship?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "no_evidence",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.9,
+              "generation": 0,
+              "total": 22.934
+            },
+            "request_id": "a6d425e2-9c3d-4097-aae1-2e1d4722b16d",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        }
+      ]
+    },
+    "grounded": {
+      "cases": 26,
+      "correct": 22,
+      "answered": 22,
+      "false_answers": 4,
+      "valid_citations": 22,
+      "details": [
+        {
+          "case": {
+            "question": "How much does Northstar analytics cost?",
+            "expected_document": "QA-101",
+            "expected_fragment": "67.40 EUR"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Amount: 67.40 EUR",
+            "citation": {
+              "document_id": "QA-101",
+              "passage_id": null,
+              "start": 25,
+              "end": 42,
+              "quote": "Amount: 67.40 EUR"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "b1b01a69-a694-4552-92a6-0c4bda26b7ab",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 38.767
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "When is the Northstar subscription payment due?",
+            "expected_document": "QA-101",
+            "expected_fragment": "2027-03-11"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+            "citation": {
+              "document_id": "QA-101",
+              "passage_id": "QA-101:1",
+              "quote": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+              "start": 65,
+              "end": 139
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.928,
+              "generation": 0,
+              "total": 23.012
+            },
+            "request_id": "acba342c-fe68-491b-8845-069cfcb47db0",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What cancellation notice does Northstar require?",
+            "expected_document": "QA-101",
+            "expected_fragment": "14 days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+            "citation": {
+              "document_id": "QA-101",
+              "passage_id": "QA-101:1",
+              "quote": "Northstar analytics subscription. Cancellation requires 14 days of notice.",
+              "start": 65,
+              "end": 139
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 20.749,
+              "generation": 0,
+              "total": 20.826
+            },
+            "request_id": "563fe219-d49a-4b6a-81de-14ce14a4c5b2",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Kui palju maksab Tamme lao haldusteenus?",
+            "expected_document": "QA-102",
+            "expected_fragment": "218,35 EUR"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Summa: 218,35 EUR",
+            "citation": {
+              "document_id": "QA-102",
+              "passage_id": null,
+              "start": 20,
+              "end": 37,
+              "quote": "Summa: 218,35 EUR"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "57c112a4-e18a-458f-ba07-1b2c00ec88ed",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 23.577
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "Mis on Tamme lao maksetähtaeg?",
+            "expected_document": "QA-102",
+            "expected_fragment": "2027-04-19"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Tähtaeg: 2027-04-19",
+            "citation": {
+              "document_id": "QA-102",
+              "passage_id": null,
+              "start": 38,
+              "end": 57,
+              "quote": "Tähtaeg: 2027-04-19"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "84e720c1-104f-46f6-8ffa-5622e3cfb843",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 22.876
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "Millal toimub Tamme lao tagasimakse?",
+            "expected_document": "QA-102",
+            "expected_fragment": "pärast tagastuse kontrollimist"
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Due date: 2027-07-12",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": null,
+              "start": 37,
+              "end": 57,
+              "quote": "Due date: 2027-07-12"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "17c58295-56f2-4495-aeff-41c3ba127f33",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 22.368
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "What is the price of Cedar delivery service?",
+            "expected_document": "QA-103",
+            "expected_fragment": "55.00 GBP"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Amount: 55.00 GBP",
+            "citation": {
+              "document_id": "QA-103",
+              "passage_id": null,
+              "start": 21,
+              "end": 38,
+              "quote": "Amount: 55.00 GBP"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "3d2cf688-123a-48ce-ad6c-7cbfb8263cef",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 26.018
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "When is the Cedar invoice due?",
+            "expected_document": "QA-103",
+            "expected_fragment": "2027-06-30"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Due date: 2027-06-30",
+            "citation": {
+              "document_id": "QA-103",
+              "passage_id": null,
+              "start": 39,
+              "end": 59,
+              "quote": "Due date: 2027-06-30"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "0a6a8e86-5a4b-473c-a2bf-0b2f9dd32fab",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 20.924
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "How is tracking provided for Cedar delivery?",
+            "expected_document": "QA-103",
+            "expected_fragment": "after dispatch"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+            "citation": {
+              "document_id": "QA-103",
+              "passage_id": "QA-103:1",
+              "quote": "Cedar delivery service. Parcel tracking is sent after dispatch.",
+              "start": 61,
+              "end": 124
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 17.852,
+              "generation": 0,
+              "total": 17.914
+            },
+            "request_id": "d9c95055-97be-474e-9642-11f600f580bf",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How much does Orbit membership cost?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "field_missing_or_ambiguous",
+            "answer": null,
+            "citation": null,
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "406daf9b-cdad-4b54-a667-5599b3e916a5",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 22.829
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "Mis on Linnu koolituse maksetähtaeg?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "field_missing_or_ambiguous",
+            "answer": null,
+            "citation": null,
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "d01d60b8-a403-4b00-b15a-a46f6671f458",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 27.862
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "What is the approved price of Quartz support?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "field_missing_or_ambiguous",
+            "answer": null,
+            "citation": null,
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "69c0dd9b-59d9-4845-9f6e-cab1017f415c",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 26.177
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "How much does Maple consulting cost?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Amount: 9.99 USD",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": null,
+              "start": 20,
+              "end": 36,
+              "quote": "Amount: 9.99 USD"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "4f0d6c1d-290b-4183-aaad-cc2dd977a102",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 1,
+            "timing_ms": {
+              "total": 20.248
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "What is the amount for Delta annual hosting?",
+            "expected_document": "QA-108",
+            "expected_fragment": "1200.00 EUR"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Amount: 1200.00 EUR",
+            "citation": {
+              "document_id": "QA-108",
+              "passage_id": null,
+              "start": 21,
+              "end": 40,
+              "quote": "Amount: 1200.00 EUR"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "604a4337-1011-4795-9aa3-737f587d5c96",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 22.894
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "What is the due date of Delta hosting?",
+            "expected_document": "QA-108",
+            "expected_fragment": "2027-08-01"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Due date: 2027-08-01",
+            "citation": {
+              "document_id": "QA-108",
+              "passage_id": null,
+              "start": 41,
+              "end": 61,
+              "quote": "Due date: 2027-08-01"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "3247cb0b-f148-448a-a422-758dc96f2a51",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 23.858
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "How long are Delta backups retained?",
+            "expected_document": "QA-108",
+            "expected_fragment": "30 days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Delta annual hosting service. Backups are retained for 30 days.",
+            "citation": {
+              "document_id": "QA-108",
+              "passage_id": "QA-108:1",
+              "quote": "Delta annual hosting service. Backups are retained for 30 days.",
+              "start": 63,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 24.335,
+              "generation": 0,
+              "total": 24.415
+            },
+            "request_id": "6e70aafe-8d84-44c0-bdf6-b336eb112a80",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "How much does the Pine newsletter cost?",
+            "expected_document": "QA-109",
+            "expected_fragment": "9.99 USD"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Amount: 9.99 USD",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": null,
+              "start": 20,
+              "end": 36,
+              "quote": "Amount: 9.99 USD"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "e24d8be8-a3db-41bb-8acf-24511f5536cc",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 21.442
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "Is the Pine newsletter refundable after delivery?",
+            "expected_document": "QA-109",
+            "expected_fragment": "not refundable"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+            "citation": {
+              "document_id": "QA-109",
+              "passage_id": "QA-109:1",
+              "quote": "Pine digital newsletter. Subscription fees are not refundable after delivery.",
+              "start": 59,
+              "end": 136
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 21.596,
+              "generation": 0,
+              "total": 21.679
+            },
+            "request_id": "e66b38e3-5072-4025-8315-7555e9839e14",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Kui palju maksab Mere e-poe hooldus?",
+            "expected_document": "QA-110",
+            "expected_fragment": "340,00 EUR"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Summa: 340,00 EUR",
+            "citation": {
+              "document_id": "QA-110",
+              "passage_id": null,
+              "start": 20,
+              "end": 37,
+              "quote": "Summa: 340,00 EUR"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "2c8a1aa2-36c4-4a28-889a-490be2ddac4e",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 20.908
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "Mis on Mere e-poe maksetähtaeg?",
+            "expected_document": "QA-110",
+            "expected_fragment": "2027-09-22"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Tähtaeg: 2027-09-22",
+            "citation": {
+              "document_id": "QA-110",
+              "passage_id": null,
+              "start": 38,
+              "end": 57,
+              "quote": "Tähtaeg: 2027-09-22"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "61e34ad1-a2d2-4cd5-aa2f-8b40cfd722ab",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 21.895
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "How much does Bridge maintenance cost?",
+            "expected_document": "QA-111",
+            "expected_fragment": "85.00 GBP"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Amount: 85.00 GBP",
+            "citation": {
+              "document_id": "QA-111",
+              "passage_id": null,
+              "start": 22,
+              "end": 39,
+              "quote": "Amount: 85.00 GBP"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "656a5fab-c0ec-41fa-a7ad-aff50b608787",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 24.052
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "What response time does Bridge promise?",
+            "expected_document": "QA-111",
+            "expected_fragment": "two business days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Bridge maintenance plan. The response time is two business days.",
+            "citation": {
+              "document_id": "QA-111",
+              "passage_id": "QA-111:1",
+              "quote": "Bridge maintenance plan. The response time is two business days.",
+              "start": 62,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 29.078,
+              "generation": 0,
+              "total": 29.181
+            },
+            "request_id": "f2b32a5f-54be-4521-a031-52a3adf53c69",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the price of the Solar training package?",
+            "expected_document": "QA-112",
+            "expected_fragment": "200.00 EUR"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_typed_field",
+            "answer": "Amount: 200.00 EUR",
+            "citation": {
+              "document_id": "QA-112",
+              "passage_id": null,
+              "start": 21,
+              "end": 39,
+              "quote": "Amount: 200.00 EUR"
+            },
+            "backend": "grounded",
+            "model": "typed-extraction-with-neural-retrieval",
+            "cache_hit": false,
+            "request_id": "3a126936-fcd0-4528-a832-18e157de38d8",
+            "policy": "typed-grounding-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c",
+            "quarantined_passages": 0,
+            "timing_ms": {
+              "total": 22.687
+            }
+          }
+        },
+        {
+          "case": {
+            "question": "When does access to Solar training expire?",
+            "expected_document": "QA-112",
+            "expected_fragment": "90 days"
+          },
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Solar training package. Access expires 90 days after activation.",
+            "citation": {
+              "document_id": "QA-112",
+              "passage_id": "QA-112:1",
+              "quote": "Solar training package. Access expires 90 days after activation.",
+              "start": 62,
+              "end": 126
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.756,
+              "generation": 0,
+              "total": 22.84
+            },
+            "request_id": "e9b4da69-7a89-425e-80b9-3653c31f5345",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "What is the oxygen concentration on Mars?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Reference: MAPLE-107",
+            "citation": {
+              "document_id": "QA-107",
+              "passage_id": "QA-107:0",
+              "quote": "Reference: MAPLE-107",
+              "start": 0,
+              "end": 20
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 23.261,
+              "generation": 0,
+              "total": 23.451
+            },
+            "request_id": "5dcd22e6-fa59-454c-a712-c6798c55261d",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        },
+        {
+          "case": {
+            "question": "Who won the dinosaur football championship?",
+            "expected_document": null,
+            "expected_fragment": null
+          },
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "no_evidence",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "none",
+            "timing_ms": {
+              "retrieval": 22.009,
+              "generation": 0,
+              "total": 22.044
+            },
+            "request_id": "4edd2c31-272a-4fc9-a3b1-f03099e2391d",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "a646d2c3f3b9dcbd0dfa916bc5171e8e0289df14fe768c9030753a4648ee694c"
+          }
+        }
+      ]
+    }
+  },
+  "release_gate": {
+    "required_correct_fraction": 0.9,
+    "required_false_answers": 0,
+    "passed": false,
+    "meaning": "Synthetic review only; does not certify general accuracy or production readiness."
+  }
+}
