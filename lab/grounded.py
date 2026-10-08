@@ -47,7 +47,7 @@ class GroundedQA:
                     for p in self.base.passages.values() if p.document_id==doc]
         # Numeric header similarity is not evidence for an unrelated prose query.
         return [h for h in self.retriever(question)
-                if h.get('cosine_similarity',1)>=0.40 and '\n' not in h['text']
+                if h.get('cosine_similarity',1) is not None and h.get('cosine_similarity',1)>=0.40 and '\n' not in h['text']
                 and not re.match(r'^(Reference|Viide|Amount|Summa|Due date|Tähtaeg):',h['text'],re.I)]
 
     def answer(self,question):

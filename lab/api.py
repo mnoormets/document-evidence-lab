@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from typing import Literal
 from fastapi import FastAPI,HTTPException,Query
+from contextlib import asynccontextmanager
 from fastapi.responses import FileResponse
 from pydantic import BaseModel,ConfigDict,Field
 from .search import SearchIndex
@@ -9,16 +10,24 @@ from .extract import extract
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=json.loads((ROOT/'fixtures/documents.json').read_text(encoding='utf-8'))
 INDEX=SearchIndex(DOCS)
-app=FastAPI(title='Document Evidence Lab',version='0.3.0')
+@asynccontextmanager
+async def lifespan(app):
+    yield
+    from .vector_search import close
+    close();VECTOR_SERVICES.clear()
+app=FastAPI(title='Document Evidence Lab',version='0.4.0',lifespan=lifespan)
 class TextInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     text:str=Field(min_length=1,max_length=20000)
 @app.get('/')
 def page():return FileResponse(ROOT/'web/index.html')
 @app.get('/api/search')
-def search(q:str=Query(min_length=1,max_length=300),mode:Literal['bm25','hybrid','neural','neural_hybrid']='hybrid'):
+def search(q:str=Query(min_length=1,max_length=300),mode:Literal['bm25','hybrid','neural','neural_hybrid','qdrant','qdrant_rerank']='hybrid'):
     try:
-        if mode.startswith('neural'):
+        if mode.startswith('qdrant'):
+            from .vector_search import load_index
+            hits=load_index(DOCS,rerank=mode=='qdrant_rerank').search(q,mode)
+        elif mode.startswith('neural'):
             from .semantic import load_index
             hits=load_index(DOCS).search(q,mode)
         else:hits=INDEX.search(q,mode)
@@ -54,6 +63,7 @@ class AnswerInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     question:str=Field(min_length=1,max_length=300)
     backend:Literal['grounded','local_llm','retrieval']='grounded'
+    retrieval_mode:Literal['neural','qdrant','qdrant_rerank']='neural'
 
 def get_rag():
     global RAG_SERVICE
@@ -70,13 +80,16 @@ def get_rag():
 @app.post('/api/answer')
 def answer(body:AnswerInput):
     try:
+        service=get_rag() if body.retrieval_mode=='neural' else get_vector_rag(body.retrieval_mode)
+        if body.backend=='local_llm' and body.retrieval_mode!='neural' and service.generator is None:
+            service.generator=get_rag().generator
         if body.backend=='grounded':
             from .grounded import GroundedQA
-            service=get_rag()
             started=time.perf_counter()
             result=GroundedQA(DOCS,service.retriever).answer(body.question)
             result=service._finish(result,started)
-        else:result=get_rag().answer(body.question,body.backend)
+        else:result=service.answer(body.question,body.backend)
+        result['retrieval_mode']=body.retrieval_mode
     except (RuntimeError,ImportError,OSError,ValueError):raise HTTPException(503,'Local AI pipeline unavailable')
     if result['reason']=='model_busy':raise HTTPException(429,'Local model busy; retry later')
     return result
@@ -96,3 +109,22 @@ def quality_evaluation():
     target=ROOT/'quality-evaluation.json'
     if not target.exists():raise HTTPException(404,'Run the quality evaluation first')
     return json.loads(target.read_text(encoding='utf-8'))
+
+
+VECTOR_SERVICES={}
+def get_vector_rag(mode):
+    with RAG_LOCK:
+        if mode not in VECTOR_SERVICES:
+            from .vector_search import load_index
+            from .rag import EvidenceRAG
+            from .generator import LocalGenerator
+            index=load_index(DOCS,rerank=mode=='qdrant_rerank')
+            generator=None
+            VECTOR_SERVICES[mode]=EvidenceRAG(DOCS,lambda q:index.search(q,mode,3),generator)
+        return VECTOR_SERVICES[mode]
+
+@app.get('/api/vector-evaluation')
+def vector_evaluation():
+    path=ROOT/'vector-evaluation.json'
+    if not path.exists():raise HTTPException(404,'Run python -m lab.evaluate_vectors first')
+    return json.loads(path.read_text(encoding='utf-8'))

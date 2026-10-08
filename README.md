@@ -100,3 +100,33 @@ requires no model download. GitHub Actions installs the core requirements, runs
 all behavior tests and the offline gate, then exports reviewable JSON artifacts.
 Optional pretrained-model experiments must be run separately; CI does not claim
 GPU training, Linux model timings or neural quality that it has not measured.
+
+## Persistent Qdrant and cross-encoder extension
+Install the core and neural requirements, prepare the embedding model, then run
+`python -m lab.prepare_reranker --model compact`. The compact model is a pinned
+multilingual mMARCO MiniLMv2 cross-encoder. `--model bge` prepares pinned
+BAAI/bge-reranker-v2-m3 for a larger-memory environment; that option has not been
+executed here. Models download only during explicit preparation, never API requests.
+
+The qdrant and qdrant_rerank modes persist paragraph vectors and source payloads
+in embedded Qdrant under ignored data/qdrant. Each collection is addressed by
+corpus, encoder revision and chunking hash. Completed builds are reused after
+restart; incomplete builds are rebuilt. Changed corpora cannot leak old results.
+Candidate retrieval combines cosine search and BM25 with RRF; reranking uses raw
+cross-encoder logits, not calibrated confidence. The answer UI can use this
+retrieval stage with the existing source-grounded answer policy.
+
+Run `python -m lab.evaluate_vectors` with the local model cache prepared.
+Actual 26-case regression comparison: all methods made 26 correct answer/abstention
+decisions. Mean retrieval: memory neural 18.7 ms, persistent hybrid 22.6 ms,
+reranked hybrid 127.5 ms on this CPU. The reranker provided no accuracy gain on this
+already-reviewed small set; it adds latency. See vector-evaluation.json for exact
+models, failures, policy and timings. Do not interpret this as real-world accuracy.
+
+52 backend tests pass, including real embedded-Qdrant persistence/restart,
+collection isolation, partial-build recovery, invalid scores and explicit missing
+reranker responses. Local embedded Qdrant is a vector database, but this has not
+validated a distributed server deployment or larger collection performance.
+Sources: [Qdrant client](https://github.com/qdrant/qdrant-client),
+[mMARCO model card](https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1),
+[BGE multilingual model card](https://huggingface.co/BAAI/bge-reranker-v2-m3).

@@ -35,3 +35,14 @@ Its report explicitly excludes semantic model accuracy; failures exit nonzero.
 GitHub Actions exports reports, but hosted CI execution remains unverified until
 public repository publication. One regression verifies typed policy metadata is
 preserved when aggregate request instrumentation is applied.
+
+
+## Persistent retrieval checkpoint — 8 October 2026
+52 tests pass. Qdrant disk restart reuses existing vectors with the same source
+payloads; small cosine floating-point differences after persistence are checked
+with numerical tolerance. Corpus/model signatures isolate collections, and a
+build-complete marker prevents use of incomplete ingestion.
+Actual compact cross-encoder and encoder ran locally against 26 reviewed cases.
+The new reranker changed rankings but did not improve decision accuracy on this
+set; it increased latency. See vector-evaluation.json. BGE support is prepared
+but BGE inference itself was not executed.
