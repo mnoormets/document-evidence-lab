@@ -1,5 +1,7 @@
 # Document Evidence Lab
 
+[![Checks](https://github.com/mnoormets/document-evidence-lab/actions/workflows/check.yml/badge.svg)](https://github.com/mnoormets/document-evidence-lab/actions/workflows/check.yml)
+
 AI-assisted personal learning project. Search synthetic Estonian/English documents,
 extract explicitly labelled fields into JSON, and inspect exact evidence spans.
 No customer records, confidential documents, hosted model calls or training claims.
