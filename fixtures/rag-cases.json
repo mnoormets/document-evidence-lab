@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What notice is required for cancellation?",
+    "expected_document": "DOC-003",
+    "expected_fragment": "Cancellation requires notice before renewal"
+  },
+  {
+    "question": "How much does the monthly software subscription cost?",
+    "expected_document": "DOC-003",
+    "expected_fragment": "29.00 USD"
+  },
+  {
+    "question": "When is the subscription payment due?",
+    "expected_document": "DOC-003",
+    "expected_fragment": "2026-11-15"
+  },
+  {
+    "question": "How does the parcel tracking reach the store?",
+    "expected_document": "DOC-002",
+    "expected_fragment": "jälgimiskoodi"
+  },
+  {
+    "question": "When will the buyer get their money back?",
+    "expected_document": "DOC-004",
+    "expected_fragment": "pärast kauba kontrollimist"
+  },
+  {
+    "question": "What confirms the store payment?",
+    "expected_document": "DOC-001",
+    "expected_fragment": "kinnitatud makse"
+  },
+  {
+    "question": "How much oxygen does the Mars spacecraft carry?",
+    "expected_document": null,
+    "expected_fragment": ""
+  },
+  {
+    "question": "dinosaur fossil excavation site",
+    "expected_document": null,
+    "expected_fragment": ""
+  }
+]

@@ -9,7 +9,7 @@ from .extract import extract
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=json.loads((ROOT/'fixtures/documents.json').read_text(encoding='utf-8'))
 INDEX=SearchIndex(DOCS)
-app=FastAPI(title='Document Evidence Lab',version='0.1.0')
+app=FastAPI(title='Document Evidence Lab',version='0.3.0')
 class TextInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     text:str=Field(min_length=1,max_length=20000)
@@ -43,4 +43,42 @@ def status():return {'neural_prepared':(ROOT/'data/model-manifest.json').exists(
 def semantic_evaluation():
     target=ROOT/'semantic-evaluation.json'
     if not target.exists():raise HTTPException(404,'Neural evaluation has not run')
+    return json.loads(target.read_text(encoding='utf-8'))
+
+# Initialize the optional AI pipeline lazily; never download a model in a request.
+import threading
+RAG_LOCK=threading.Lock()
+RAG_SERVICE=None
+class AnswerInput(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    question:str=Field(min_length=1,max_length=300)
+    backend:Literal['local_llm','retrieval']='retrieval'
+
+def get_rag():
+    global RAG_SERVICE
+    with RAG_LOCK:
+        if RAG_SERVICE is None:
+            from .semantic import load_index
+            from .rag import EvidenceRAG
+            from .generator import LocalGenerator
+            neural=load_index(DOCS)
+            generator=LocalGenerator() if (ROOT/'data/generator-manifest.json').exists() else None
+            RAG_SERVICE=EvidenceRAG(DOCS,lambda q:neural.search(q,'neural',3),generator)
+        return RAG_SERVICE
+
+@app.post('/api/answer')
+def answer(body:AnswerInput):
+    try:result=get_rag().answer(body.question,body.backend)
+    except (RuntimeError,ImportError,OSError,ValueError):raise HTTPException(503,'Local AI pipeline unavailable')
+    if result['reason']=='model_busy':raise HTTPException(429,'Local model busy; retry later')
+    return result
+
+@app.get('/api/rag-metrics')
+def rag_metrics():
+    return RAG_SERVICE.metrics() if RAG_SERVICE else {'counters':{},'state':'not_initialized'}
+
+@app.get('/api/rag-evaluation')
+def rag_evaluation():
+    target=ROOT/'rag-evaluation.json'
+    if not target.exists():raise HTTPException(404,'RAG evaluation has not run')
     return json.loads(target.read_text(encoding='utf-8'))

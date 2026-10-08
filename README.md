@@ -24,8 +24,7 @@ No PDF/OCR parser, model fine-tuning, authentication or document upload/persiste
 Optional semantic embeddings are prepared separately as described below.
 Local elapsed times are a small-data measurement, not a production throughput claim.
 Documents are UTF-8 plain text. Extraction does not understand arbitrary clauses.
-For a neural RAG extension, keep this baseline and evaluate new answers/citations on
-separate examples. Document text must remain untrusted data, never instructions.
+Document text remains untrusted data, never instructions.
 
 ## Learning check
 Explain why character grams can tolerate spelling/inflection and why they can also
@@ -45,7 +44,7 @@ The tested model is sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
 (Apache-2.0), revision recorded in semantic-evaluation.json, 384-dimensional vectors.
 Neural search uses cosine >= 0.30; the hybrid method combines BM25 and neural ranks
 with reciprocal-rank fusion. This threshold is an initial review policy, not a
-calibrated confidence score. No generated-answer RAG or model fine-tuning is claimed.
+calibrated confidence score. No model fine-tuning is claimed. The extractive RAG extension is described below.
 
 The 16-case set contains 14 answerable and 2 unrelated queries, including cross-language
 questions. Keep failures and unknown-query returns; do not report hit rate as general
@@ -53,3 +52,24 @@ accuracy. First model load is slow; measured warm query time excludes initializa
 
 Sources: https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
 and https://sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html.
+
+## Evidence-constrained local RAG
+Run `python -m lab.prepare_generator` once, then `python -m lab.evaluate_rag`.
+The optional generator is HuggingFaceTB/SmolLM2-135M-Instruct, pinned to
+12fd25f77366fa6b3b4b768ec3050bf629380bac. It runs on CPU, without hosted inference.
+POST /api/answer accepts question and backend (retrieval or local_llm).
+The model selects a numbered quote through a finite JSON token grammar. The server
+validates the selection and exact document offsets; final answers are extractive
+quotes, never unchecked model prose. Unknown evidence and invalid outputs abstain.
+GET /api/rag-metrics exposes aggregate counts and timings without query text.
+
+Quality matters more than adding a model: on eight synthetic questions, the first
+retrieved quote got 5/8 cases correct and the small generator got 3/8. Citation
+membership passed for all returned answers, but relevance did not. The default is
+the retrieval baseline; local_llm is experimental. Full failures remain in
+rag-evaluation.json. These results do not establish real-document accuracy.
+
+The request is limited to 300 characters, model input to 1024 tokens, candidates
+to 12, and cache to 64 entries with a five-minute TTL. Model calls are serialized;
+busy calls return 429. Recognized instruction-injection phrases are quarantined,
+but this heuristic is not a comprehensive injection defense. See ARCHITECTURE.md.

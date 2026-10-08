@@ -1,0 +1,463 @@
+{
+  "scope": "Extractive RAG on six synthetic documents. Not a general benchmark or production accuracy claim.",
+  "generator": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "retrieval_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "policy": "extractive-rag-v1",
+  "constrained_decoding": "finite JSON choice grammar",
+  "device": "cpu",
+  "methods": {
+    "retrieval": {
+      "cases": 8,
+      "correct_cases": 5,
+      "answered_cases": 6,
+      "valid_citations": 6,
+      "mean_total_ms": 16.66975,
+      "p95_total_ms": 18.445,
+      "details": [
+        {
+          "question": "What notice is required for cancellation?",
+          "expected_document": "DOC-003",
+          "expected_fragment": "Cancellation requires notice before renewal",
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+            "citation": {
+              "document_id": "DOC-003",
+              "passage_id": "DOC-003:1",
+              "quote": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+              "start": 64,
+              "end": 173
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 16.587,
+              "generation": 0,
+              "total": 16.882
+            },
+            "request_id": "5e2f0544-a809-4c3a-b830-bb3a0fb99d91",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "How much does the monthly software subscription cost?",
+          "expected_document": "DOC-003",
+          "expected_fragment": "29.00 USD",
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+            "citation": {
+              "document_id": "DOC-003",
+              "passage_id": "DOC-003:1",
+              "quote": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+              "start": 64,
+              "end": 173
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 15.849,
+              "generation": 0,
+              "total": 15.936
+            },
+            "request_id": "a90d51b9-29a0-4824-a5d4-80f6bdc5bafa",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "When is the subscription payment due?",
+          "expected_document": "DOC-003",
+          "expected_fragment": "2026-11-15",
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+            "citation": {
+              "document_id": "DOC-003",
+              "passage_id": "DOC-003:1",
+              "quote": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+              "start": 64,
+              "end": 173
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 14.968,
+              "generation": 0,
+              "total": 15.043
+            },
+            "request_id": "6916bb6f-fa08-4fc3-b092-628bef84311e",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "How does the parcel tracking reach the store?",
+          "expected_document": "DOC-002",
+          "expected_fragment": "jälgimiskoodi",
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Smartpost tarne. Lao ja tellimuste liidestus edastab saadetise jälgimiskoodi. Kättetoimetamise olek sünkroonitakse poodi.",
+            "citation": {
+              "document_id": "DOC-002",
+              "passage_id": "DOC-002:1",
+              "quote": "Smartpost tarne. Lao ja tellimuste liidestus edastab saadetise jälgimiskoodi. Kättetoimetamise olek sünkroonitakse poodi.",
+              "start": 59,
+              "end": 180
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 16.117,
+              "generation": 0,
+              "total": 16.196
+            },
+            "request_id": "48eb43d8-12bd-43aa-8ac7-6408a652afdd",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "When will the buyer get their money back?",
+          "expected_document": "DOC-004",
+          "expected_fragment": "pärast kauba kontrollimist",
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Tagastus. Kliendile raha tagastamine toimub pärast kauba kontrollimist. Varasem tarne võib jääda tellimusele nähtavaks.",
+            "citation": {
+              "document_id": "DOC-004",
+              "passage_id": "DOC-004:1",
+              "quote": "Tagastus. Kliendile raha tagastamine toimub pärast kauba kontrollimist. Varasem tarne võib jääda tellimusele nähtavaks.",
+              "start": 58,
+              "end": 177
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 17.671,
+              "generation": 0,
+              "total": 17.749
+            },
+            "request_id": "429ebd5c-7b66-43d1-a789-6e796bb80657",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "What confirms the store payment?",
+          "expected_document": "DOC-001",
+          "expected_fragment": "kinnitatud makse",
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Tagastus. Kliendile raha tagastamine toimub pärast kauba kontrollimist. Varasem tarne võib jääda tellimusele nähtavaks.",
+            "citation": {
+              "document_id": "DOC-004",
+              "passage_id": "DOC-004:1",
+              "quote": "Tagastus. Kliendile raha tagastamine toimub pärast kauba kontrollimist. Varasem tarne võib jääda tellimusele nähtavaks.",
+              "start": 58,
+              "end": 177
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 16.366,
+              "generation": 0,
+              "total": 16.452
+            },
+            "request_id": "a5f2fd6b-31af-4217-9cd6-8b80d0008431",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "How much oxygen does the Mars spacecraft carry?",
+          "expected_document": null,
+          "expected_fragment": "",
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "no_evidence",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 18.414,
+              "generation": 0,
+              "total": 18.445
+            },
+            "request_id": "59d4c680-70c9-487c-9315-57cb43121f9e",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "dinosaur fossil excavation site",
+          "expected_document": null,
+          "expected_fragment": "",
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "no_evidence",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "retrieval",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 16.626,
+              "generation": 0,
+              "total": 16.655
+            },
+            "request_id": "e7c9ae2d-6a58-478d-b1f3-3f5a2e8ea2d8",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        }
+      ]
+    },
+    "local_llm": {
+      "cases": 8,
+      "correct_cases": 3,
+      "answered_cases": 2,
+      "valid_citations": 2,
+      "mean_total_ms": 615.81125,
+      "p95_total_ms": 1635.447,
+      "details": [
+        {
+          "question": "What notice is required for cancellation?",
+          "expected_document": "DOC-003",
+          "expected_fragment": "Cancellation requires notice before renewal",
+          "correct": true,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+            "citation": {
+              "document_id": "DOC-003",
+              "passage_id": "DOC-003:1",
+              "quote": "Monthly software subscription. Cancellation requires notice before renewal. No physical shipment is included.",
+              "start": 64,
+              "end": 173
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 15.662,
+              "generation": 1619.697,
+              "total": 1635.447
+            },
+            "request_id": "bba7ae5e-3561-49c3-920f-a9bacba25ab9",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "How much does the monthly software subscription cost?",
+          "expected_document": "DOC-003",
+          "expected_fragment": "29.00 USD",
+          "correct": false,
+          "result": {
+            "status": "abstained",
+            "reason": "model_abstained",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 16.879,
+              "generation": 604.998,
+              "total": 621.97
+            },
+            "request_id": "4a062e93-7b86-40c0-9a43-3da967477ed5",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "When is the subscription payment due?",
+          "expected_document": "DOC-003",
+          "expected_fragment": "2026-11-15",
+          "correct": false,
+          "result": {
+            "status": "abstained",
+            "reason": "model_abstained",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 16.433,
+              "generation": 587.834,
+              "total": 604.352
+            },
+            "request_id": "2a67bd4e-76ed-43d3-bf88-5ab62d8255d8",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "How does the parcel tracking reach the store?",
+          "expected_document": "DOC-002",
+          "expected_fragment": "jälgimiskoodi",
+          "correct": false,
+          "result": {
+            "status": "abstained",
+            "reason": "model_abstained",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 19.295,
+              "generation": 567.461,
+              "total": 586.833
+            },
+            "request_id": "8c360cdc-f59e-4c52-9b1c-9010c95b84bc",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "When will the buyer get their money back?",
+          "expected_document": "DOC-004",
+          "expected_fragment": "pärast kauba kontrollimist",
+          "correct": false,
+          "result": {
+            "status": "abstained",
+            "reason": "model_abstained",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 17.034,
+              "generation": 681.713,
+              "total": 698.833
+            },
+            "request_id": "96812d1b-e091-481d-9883-deeeb7b5b52b",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "What confirms the store payment?",
+          "expected_document": "DOC-001",
+          "expected_fragment": "kinnitatud makse",
+          "correct": false,
+          "result": {
+            "status": "answered",
+            "reason": "verified_source_selection",
+            "answer": "Tagastus. Kliendile raha tagastamine toimub pärast kauba kontrollimist. Varasem tarne võib jääda tellimusele nähtavaks.",
+            "citation": {
+              "document_id": "DOC-004",
+              "passage_id": "DOC-004:1",
+              "quote": "Tagastus. Kliendile raha tagastamine toimub pärast kauba kontrollimist. Varasem tarne võib jääda tellimusele nähtavaks.",
+              "start": 58,
+              "end": 177
+            },
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 15.073,
+              "generation": 731.049,
+              "total": 746.211
+            },
+            "request_id": "f519896a-7c98-47a9-bf8e-844d40561dfe",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "How much oxygen does the Mars spacecraft carry?",
+          "expected_document": null,
+          "expected_fragment": "",
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "no_evidence",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 16.985,
+              "generation": 0,
+              "total": 17.017
+            },
+            "request_id": "e275de9d-bb9d-4f99-aa8d-3b865813dca7",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        },
+        {
+          "question": "dinosaur fossil excavation site",
+          "expected_document": null,
+          "expected_fragment": "",
+          "correct": true,
+          "result": {
+            "status": "abstained",
+            "reason": "no_evidence",
+            "answer": null,
+            "citation": null,
+            "cache_hit": false,
+            "quarantined_passages": 0,
+            "backend": "local_llm",
+            "model": "HuggingFaceTB/SmolLM2-135M-Instruct@12fd25f77366fa6b3b4b768ec3050bf629380bac",
+            "timing_ms": {
+              "retrieval": 15.788,
+              "generation": 0,
+              "total": 15.827
+            },
+            "request_id": "175921aa-ad99-40f6-bfdf-8a7935b8cc30",
+            "policy": "extractive-rag-v1",
+            "corpus_sha256": "6902335028885c1b769f948b0a0e11b2ce121aeecd8d33bcec0276da9f64eb95"
+          }
+        }
+      ]
+    }
+  },
+  "limitations": "Citations prove source membership, not relevance or truth. Injection filter is heuristic, not a security guarantee."
+}

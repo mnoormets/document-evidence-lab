@@ -1,16 +1,22 @@
-# Validation - 8 October 2026
-Eleven automated tests passed: extraction/source spans, ambiguous amounts,
-invalid dates, search edge cases, inflection recovery and API validation.
-See evaluation.json for actual retrieval metrics on ten fixed synthetic queries.
-No real-document evaluation, embedding model, neural RAG or model training here.
-Runtime uses the neighboring Shopify environment on this computer; requirements
-allow a separate virtual environment for a fresh checkout.
+# Validation — 8 October 2026
 
-- Real local neural model download and CPU inference completed at pinned revision.
-- semantic-evaluation.json records 16 cases, 4 methods, cosine policy, library versions,
-  setup time, warm query timing and every expected/retrieved document ID.
-- Neural retrieval found the relevant document first on 14/14 answerable synthetic
-  cases, and returned no passage for 2/2 unrelated cases at the initial threshold.
-- Neural/BM25 hybrid also returned a passage for one unrelated case: fusion can
-  reintroduce lexical false positives. This is recorded, not hidden.
-- No fine-tuning, real-document evaluation or generated-answer grounding is tested.
+28 automated tests cover retrieval/extraction, strict answer API inputs, busy and
+unavailable responses, canonical source membership, exact citation offsets,
+malformed selections, recognized injection text, decimal preservation, bounded
+cache/TTL and finite JSON token constraints. Mock generators test invariants;
+separate recorded experiments execute real pretrained models locally on CPU.
+
+- semantic-evaluation.json: 16 synthetic queries, four retrieval methods. Neural
+  retrieval found the expected document first on 14/14 answerable cases and
+  abstained on 2/2 unrelated cases. Neural hybrid returned an unrelated result once.
+- rag-evaluation.json: eight questions, six synthetic documents. Retrieval baseline
+  correct 5/8; local SmolLM2 selector correct 3/8, answering only two questions.
+  All returned citations were exact document spans. This does not establish
+  relevance, factual truth or sufficient quality for unattended deployment.
+- Local CPU timings include per-request retrieval/generation, excluding model setup.
+  Model revisions, failure responses and reference fragments are retained.
+- No fine-tuning, GPU cluster, real customer data, uptime SLA or production load
+  test has been performed. Small overlapping fixture sets are exploratory evidence.
+
+Run python -m pytest -q and python -m lab.evaluate_rag to reproduce. Install a
+CPU-compatible PyTorch and requirements-neural.txt for the optional model paths.
