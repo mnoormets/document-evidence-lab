@@ -46,3 +46,6 @@ Actual compact cross-encoder and encoder ran locally against 26 reviewed cases.
 The new reranker changed rankings but did not improve decision accuracy on this
 set; it increased latency. See vector-evaluation.json. BGE support is prepared
 but BGE inference itself was not executed.
+
+## Browser verification
+An isolated headless browser selected Qdrant plus reranker, waited for the actual search response and asked for the subscription price through the same backend. The displayed answer contained 29.00 USD with its source. See vector-ui-report.json and tests/ui_vectors.cjs. Retrieval benchmark timings exclude initial model loading.

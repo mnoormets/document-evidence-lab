@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-08",
+  "browser": "isolated headless Chromium",
+  "qdrant_reranked_search": true,
+  "ui_answer_uses_vector_backend": true,
+  "source_amount_verified": "29.00 USD",
+  "model_loading_excluded_from_retrieval_timings": true
+}
